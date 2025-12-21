@@ -26,7 +26,7 @@ const ResponseRequest = ({ request, loadRequests }) => {
     return (
 
 
-        <Container>
+        <Container className="custom-theme responseRequest mt-3">
 
             {
                 request?.response === false &&
@@ -37,23 +37,25 @@ const ResponseRequest = ({ request, loadRequests }) => {
                         <Accordion.Body>
 
                             <Form onSubmit={handleCommentSubmit}>
-                                <FloatingLabel controlId="floatingTextarea2" label="coment..." className="mt-2 mb-2" >
+                                <FloatingLabel controlId="floatingTextarea2" label="Comment..." className="mt-2 mb-2" >
                                     <Form.Control
+                                        as="textarea" /* Cambio importante: para que sea una caja de texto */
+                                        style={{ height: '100px' }}
                                         type="text"
                                         name={'textresponse'}
                                         value={requestData?.textresponse}
                                         onChange={handleInputChange}
+                                        placeholder="Comment..."
                                     />
                                 </FloatingLabel>
-
-                                <Button type="submit" className="mt-2 mb-2" variant="dark">Send response</Button>
+                                <div className="d-flex justify-content-center">
+                                    <Button type="submit" className="mt-3 mb-2 justify-content-center" variant="dark">Send response</Button>
+                                </div>
                             </Form>
 
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
-
-
             }
 
         </Container>

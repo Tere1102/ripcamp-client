@@ -1,4 +1,128 @@
-.AlumniCard {
-    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px, rgba(0, 0, 0, 0.35) 10px 10px, rgba(0, 0, 0, 0.35) 15px 15px, rgba(0, 0, 0, 0.35) 20px 20px, rgba(0, 0, 0, 0.35) 25px 25px;
+.alumni-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: var(--color-white);
+}
 
+/* ===========================
+   CARD PRINCIPAL
+=========================== */
+.AlumniCard.card {
+  background-color: var(--color-dark-700) !important;
+  color: var(--color-white) !important;
+  border-radius: 12px;
+  /* Un poco más redondeado */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.AlumniCard.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* ===========================
+   IMAGEN
+=========================== */
+.AlumniCard img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ===========================
+   TIPOGRAFÍA Y COLOR
+=========================== */
+
+/* 1. TÍTULO (NOMBRE) EN NARANJA */
+.AlumniCard .card-title {
+  color: var(--color-accent-primary) !important;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* 2. TEXTOS Y ETIQUETAS (Strong) EN NARANJA */
+.AlumniCard .card-text {
+  color: var(--color-text-muted);
+  opacity: 0.95;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Aquí está la clave para que "Phone:", "Email:", etc. sean naranjas */
+.AlumniCard .card-text strong {
+  color: var(--color-accent-primary);
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+/* ===========================
+   BADGES (ETIQUETAS)
+=========================== */
+.AlumniCard .badge {
+  /* Fondo naranja muy suave */
+  background-color: rgba(255, 149, 106, 0.15) !important;
+  /* Texto naranja fuerte */
+  color: var(--color-accent-primary) !important;
+  border: 1px solid var(--color-accent-primary);
+  font-weight: 500;
+  padding: 0.5em 0.8em;
+}
+
+/* Badge de Status (Working/Not Working) */
+/* Sobrescribimos para mantener el naranja como base estética, 
+   o usamos los colores semánticos pero con estilo neón */
+.AlumniCard .badge.bg-success {
+  background-color: rgba(25, 135, 84, 0.2) !important;
+  color: #75b798 !important;
+  border-color: #75b798;
+}
+
+.AlumniCard .badge.bg-danger {
+  background-color: rgba(220, 53, 69, 0.2) !important;
+  color: #ea868f !important;
+  border-color: #ea868f;
+}
+
+/* ===========================
+   BOTONES (LO IMPORTANTE)
+=========================== */
+
+/* BOTÓN REQUEST (El naranja) */
+.AlumniCard .btn-dark {
+  /* Estado Normal */
+  background-color: transparent !important;
+  border: 2px solid var(--color-accent-primary) !important;
+  color: var(--color-accent-primary) !important;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Estado Hover (Al pasar el ratón) */
+.AlumniCard .btn-dark:hover {
+  background-color: var(--color-accent-primary) !important;
+  /* Fondo naranja */
+  color: var(--color-dark-900) !important;
+  /* Texto oscuro (color de la card) */
+  box-shadow: 0 0 15px rgba(255, 149, 106, 0.4);
+  /* Brillo naranja */
+}
+
+/* BOTÓN BACK (El secundario) */
+.AlumniCard .btn-outline-dark {
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  padding: 0.6rem 1.5rem;
+}
+
+.AlumniCard .btn-outline-dark:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-white)!important;
 }

@@ -1,27 +1,13 @@
-import AlumniList from '../../Components/AlumniList/AlumniList';
-import './AlumniPage.css'
-import { Container } from "react-bootstrap"
-
+import AlumniList from "./../../Components/AlumniList/AlumniList"
+import "./AlumniPage.css"
 
 const AlumniPage = () => {
+  return (
+    <main className="alumniPage">
+      <h1 className="alumniPageTitle">Meet Our Alumni</h1>
+      <AlumniList />
+    </main>
+  )
+}
 
-    return (
-        <div className="AlumniList">
-
-            <Container className="d-flex justify-content-center">
-
-                <div className="AlumniListContainer mb-5">
-
-                    <h1>Alumni List</h1>
-
-                    <AlumniList />
-
-                </div>
-
-            </Container>
-
-        </div>
-
-    );
-};
 export default AlumniPage

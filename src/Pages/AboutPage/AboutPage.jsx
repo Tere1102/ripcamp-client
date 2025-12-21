@@ -1,63 +1,60 @@
-import { Container, Button } from 'react-bootstrap'
-import Image from 'react-bootstrap/Image'
-import './AboutPage.css'
-import { Link } from 'react-router-dom'
+import { Container, Button, Image } from 'react-bootstrap';
+import './AboutPage.css';
+import linkedinIcon from '../../assets/iconos/linkedin.png';
+
 
 const AboutPage = () => {
+  return (
+    <Container className="aboutPage">
 
-    return (
-        <Container className='AboutPage'>
+      <h1 className="aboutTitle">Welcome to Ingeina!</h1>
 
-            <h1 className='title'>Welcome to RipCamp®!</h1>
+      <p className="aboutDescription">
+        Hi! We are Teresa Arranz and Patri Lago, passionate web development students eager to make a positive impact in the tech community. Our journey began as classmates in a rigorous bootcamp, sharing a vision to build a strong and supportive network among students and alumni.
+      </p>
 
-            <p>Hi! We are Teresa Arranz and Patri Lago, both passionate students of web development, eager to make a positive impact in the tech community. Our journey began as classmates in a rigorous web development bootcamp, where we shared not only a common interest in coding but also a vision for fostering a strong and supportive network among fellow students and alumni.
-                Driven by our shared experiences and a desire to create meaningful connections, we embarked on the journey of building this platform. Our mission is simple yet profound: to bridge the gap between current students and alumni of web and data bootcamps, providing a space where they can connect, collaborate, and support each other in their professional endeavors.
-                Through our platform, students and alumni alike can engage in meaningful conversations, share valuable insights, and even collaborate on projects. Whether you're seeking mentorship, advice, or simply looking to expand your network, our platform serves as a hub for fostering growth, learning, and community within the tech industry.
-                Join us on this exciting journey as we strive to empower individuals, foster connections, and build a vibrant community of web and data enthusiasts. Together, let's unlock the full potential of our collective knowledge and experience.
-                Thank you for being a part of our story!🖤</p>
-            <p>Teresa & Patri.</p>
+      <p className="aboutDescription">
+        Our mission is simple yet profound: bridge the gap between current students and alumni of web and data bootcamps, providing a space for connection, collaboration, and support in professional growth.
+      </p>
 
-            <div className="d-flex align-items-center">
-                <Image
-                    className="aboutImage"
-                    src="https://ca.slack-edge.com/T06BMN0R8BG-U06CH4KHM7F-502fcb046a1f-512"
-                    rounded />
-                <Link to={"https://www.linkedin.com/in/teresa-arranz-carrasco-4336ba166/"}>
-                    <Button variant="dark" >Teresa's LinkedIn 👩🏼‍💻 </Button>
-                </Link>
-            </div>
+      <p className="aboutDescription">
+        Join us to engage in meaningful conversations, mentorship, and community building in tech. Together, we unlock the full potential of collective knowledge and experience.
+      </p>
 
-            <div className="d-flex align-items-center">
-                <Image
-                    className="aboutImage"
-                    src="https://ca.slack-edge.com/T06BMN0R8BG-U06D8RF618Q-da5a6e471122-512"
-                    rounded />
+      <p className="aboutSignature">— Teresa & Patri 🩶</p>
 
-                <Link to={"https://www.linkedin.com/in/patri-lago-b793242b1/"}>
-                    <Button variant="dark" >Patri's LinkedIn 👩🏾‍💻 </Button>
-                </Link>
-            </div>
+      <div className="profilesContainer">
+        <Profile
+          name="Teresa Arranz"
+          imageUrl="https://ca.slack-edge.com/T06BMN0R8BG-U06CH4KHM7F-502fcb046a1f-512"
+          linkedInUrl="https://www.linkedin.com/in/teresa-arranz-carrasco/"
+          icon={linkedinIcon}
+        />
 
-            <p> <strong>Scan me for request!</strong></p>
-            {" "}
+        <Profile
+          name="Patri Lago"
+          imageUrl="https://ca.slack-edge.com/T06BMN0R8BG-U06D8RF618Q-da5a6e471122-512"
+          linkedInUrl="https://www.linkedin.com/in/patri-lago/"
+          icon={linkedinIcon}
+        />
+      </div>  
 
-
-            <Image
-                className="QR"
-                src="https://qr-codes-svg.s3.amazonaws.com/N2gkZP.svg?1708683136423" />
-
-            {" "}
-
-            <Link to={"/"}>
-                <Button variant="dark" > 🔙 Back to Home</Button>
-            </Link>
-
-
-
-
-
-        </Container>
-    )
+    </Container>
+  )
 }
+
+const Profile = ({ name, imageUrl, linkedInUrl, icon }) => (
+  <div className="profileCard">
+    <Image src={imageUrl} alt={`${name} profile`} rounded className="profileImage" />
+    <div className="profileInfo">
+      <h3>{name}</h3>
+      <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="linkedinButton">
+        <Button variant="outline-dark">
+          <Image src={icon} alt="LinkedIn" className="linkedinIcon" />
+        </Button>
+      </a>
+    </div>
+  </div>
+)
 
 export default AboutPage

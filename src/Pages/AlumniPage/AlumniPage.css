@@ -1,29 +1,14 @@
-.img {
-    width: 100%;
+.alumniPage {
+    background-color: var(--color-dark-800);
+    min-height: 100vh;
 }
 
-a {
-    text-decoration: none;
-    color: black;
-}
-
-h1 {
+.alumniPageTitle {
     text-align: center;
-}
-
-.alumniContent {
-    display: flex;
-    flex: 1;
-    align-items: center;
-}
-
-.alumniImg {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    margin-right: 20px;
-}
-
-.buttonContainer {
-    margin-left: auto;
+    color: var(--color-accent-primary);
+    
+    padding: 20px 0 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: none;
 }

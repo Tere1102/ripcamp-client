@@ -1,0 +1,113 @@
+/* =====================================================
+   1. CONTENEDOR PRINCIPAL
+   ===================================================== */
+
+.custom-theme .editRequestForm {
+  background-color: var(--color-dark-700) !important;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+/* =====================================================
+   2. INPUTS Y SELECTS
+   ===================================================== */
+
+.custom-theme .form-floating > .form-control:not(textarea),
+.custom-theme .form-floating > .form-select {
+  background-color: var(--color-dark-600) !important;
+  color: var(--color-text-muted) !important;
+  border: 1px solid var(--color-dark-600) !important;
+
+  height: 3.5rem !important;
+  padding-top: 1.625rem !important;
+  padding-bottom: 0.625rem !important;
+  line-height: 1.25;
+}
+
+/* Textarea flotante */
+.custom-theme .form-floating > textarea.form-control {
+  min-height: 150px !important;
+  height: auto !important;
+  padding-top: 1.625rem !important;
+}
+
+/* =====================================================
+   3. LABELS
+   ===================================================== */
+
+.custom-theme .form-floating > label {
+  color: var(--color-text-muted) !important;
+  background-color: transparent !important;
+  padding: 1rem 0.75rem;
+}
+
+.custom-theme .form-floating > label::after {
+  background-color: transparent !important;
+  display: none !important;
+}
+
+.custom-theme .form-floating > .form-control:focus ~ label,
+.custom-theme .form-floating > .form-control:not(:placeholder-shown) ~ label,
+.custom-theme .form-floating > .form-select ~ label {
+  color: var(--color-accent-primary) !important;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+  background-color: transparent !important;
+  opacity: 1;
+}
+
+/* =====================================================
+   4. SELECTS (FLECHA Y OPCIONES)
+   ===================================================== */
+
+.custom-theme .form-floating > .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.75rem center !important;
+  background-size: 16px 12px !important;
+}
+
+.custom-theme select option {
+  background-color: var(--color-dark-700);
+  color: var(--color-text-muted);
+}
+
+/* =====================================================
+   5. FOCUS
+   ===================================================== */
+
+.custom-theme .form-control:focus,
+.custom-theme .form-select:focus {
+  border-color: var(--color-accent-primary) !important;
+  box-shadow: 0 0 0 0.25rem var(--focus-shadow-accent) !important;
+  outline: 0;
+}
+
+/* =====================================================
+   6. BOTÓN
+   ===================================================== */
+
+.custom-theme .btn-dark {
+  background-color: var(--color-accent-primary) !important;
+  color: var(--color-dark-900) !important;
+  border: none !important;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.custom-theme .btn-dark:hover {
+  background-color: var(--color-accent-primary-hover) !important;
+}
+
+/* =====================================================
+   7. AUTOFILL
+   ===================================================== */
+
+.custom-theme input:-webkit-autofill,
+.custom-theme input:-webkit-autofill:hover,
+.custom-theme input:-webkit-autofill:focus,
+.custom-theme input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--color-dark-600) inset !important;
+  -webkit-text-fill-color: var(--color-text-muted) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}

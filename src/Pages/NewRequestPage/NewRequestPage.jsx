@@ -10,16 +10,10 @@ const RequestForm = () => {
     return (
         <div className='NewRequestPage'>
 
-            <Container>
+            <NewRequestForm />
 
-
-                <NewRequestForm />
-
-
-            </Container>
         </div>
-
-    );
+    )
 }
 
 export default RequestForm

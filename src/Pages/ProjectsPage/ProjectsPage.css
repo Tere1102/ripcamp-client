@@ -1,8 +1,96 @@
-.ProjectCard {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+.projects-page {
+    background-color: var(--color-dark-800);
+    min-height: 100vh;
+    padding-bottom: 4rem;
 }
 
-.ProjectCard img {
-    height: 160px;
+/* SECTION */
+.projects-section {
+    padding-bottom: 1rem;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--color-accent-primary);
+
+    padding: 20px 0 60px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* CARD */
+.card.project-card {
+    background-color: var(--color-dark-700);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 149, 106, 0.4);
+}
+
+/* IMAGEN */
+.card-img-wrapper {
+    overflow: hidden;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.card.project-card img {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(0.9);
+}
+
+/* Efecto Zoom en la imagen al hacer hover en la card */
+.card.project-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+/* BODY */
+.card.project-card .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+}
+
+/* TITLE */
+.card.project-card .card-title {
+    color: var(--color-accent-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+/* TEXT */
+.card.project-card .card-text {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* =========================================
+   RESPONSIVE AJUSTES (Mobile)
+   ========================================= */
+
+@media (max-width: 767px) {
+    
+    .card.project-card {
+        max-width: 85%; 
+        margin: 0 auto; 
+    }
+
+    .card-img-wrapper {
+        height: 180px;
+    }
 }

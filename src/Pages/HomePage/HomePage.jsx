@@ -1,51 +1,126 @@
 import './HomePage.css'
+
+import idea from './../../assets/iconos/bombilla.png'
+import mano from './../../assets/iconos/manos.png'
+import ajustes from './../../assets/iconos/ajustes.png'
+import perspectiveDeveloper from './../../assets/images/perspectiveDeveloper.png'
+
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 
-
-
 const HomePage = () => {
 
+    const finalText = '"Welcome to Ingeina Bootcamp"';
+    const [typedText, setTypedText] = useState("");
+
+    useEffect(() => {
+        let index = 0;
+        const interval = setInterval(() => {
+            setTypedText(finalText.slice(0, index + 1));
+            index++;
+            if (index === finalText.length) {
+                clearInterval(interval);
+            }
+        }, 80);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
+        <div className='home'>
+            
+         
+            <article className="terminal">
+                <div className="terminal__content">
+                    <pre>
+                        <code className="terminal__code">
+                            <span className="code-bracket">{"{"}</span>
+                            <br />
+                            <span className="code-function">print</span>
+                            <span>(</span>
+                            <span className="code-old">"Hola mundo"</span>
+                            <br />
+                            <span className="code-new">{typedText}</span>
+                            <span>)</span>
+                            <br />
+                            <span className="code-bracket">{"}"}</span>
+                        </code>
+                    </pre>
+                </div>
 
-        <Carousel data-bs-theme="dark">
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://media.istockphoto.com/id/1201405775/es/foto/programaci%C3%B3n-de-la-tecnolog%C3%ADa-abstracta-de-c%C3%B3digo-de-fondo-del-desarrollador-de-software-y.jpg?s=612x612&w=0&k=20&c=widGob_XZz0iUvdt3JqM7Ld7NCvGobkLiSBbtgsAOYA="
-                    alt="First slide"
-                    style={{ maxHeight: '650px', objectFit: 'cover' }}
-                />
-                <Carousel.Caption className="carouselImages">
-                    <div className='carouselCaption'>
-                        <Link className="textLink" to="/projects"><h1> 👉🏽Projects</h1></Link>
-                        <h2>Explore detailed technical requirements for projects in both web development and data tracks of the bootcamp. Gain insights into the skills and tools needed to successfully complete each project, empowering you to excel in your learning journey and master essential concepts in modern technology stacks.</h2>
+                <div className="terminal__image-container">
+                    <img
+                        src={perspectiveDeveloper}
+                        className="terminal__img"
+                        alt="Developer Perspective"
+                    />
+                </div>
+            </article>
+
+           
+            <article className='carousel-section'>
+                <Carousel data-bs-theme="light" interval={5000} className="custom-carousel">
+                    
+                    <Carousel.Item className="carousel-item-custom">
+                        <div className="carousel-spacer"></div> {/* Espaciador para altura */}
+                        <Carousel.Caption className="carousel-caption-custom">
+                            <div className="caption-content">
+                                <Link className="text-link" to="/projects">
+                                    <h1>Projects</h1>
+                                </Link>
+                                <p>Explore technical requirements for web and data projects, gaining insights into the skills and tools needed to complete them successfully.</p>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item className="carousel-item-custom">
+                        <div className="carousel-spacer"></div>
+                        <Carousel.Caption className="carousel-caption-custom">
+                            <div className="caption-content">
+                                <Link className="text-link" to="/alumni">
+                                    <h1>Alumni List</h1>
+                                </Link>
+                                <p>Discover alumni who completed the bootcamp and connect with them for support, guidance, and insights into their experiences.</p>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                </Carousel>
+            </article>
+
+            
+            <article className="ecosystem">
+                <h2 className="ecosystem__title">The Ingeina Ecosystem</h2>
+
+                <div className="ecosystem__grid">
+                    <div className="ecosystem__card">
+                        <img src={idea} className="ecosystem__icon" alt="Continuous Innovation" />
+                        <h3 className="ecosystem__card-title">Continuous Innovation</h3>
+                        <p className="ecosystem__card-desc">
+                            Up-to-date programs aligned with the latest technologies and industry best practices.
+                        </p>
                     </div>
-                </Carousel.Caption>
 
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="https://elcandidatoidoneo.com/wp-content/uploads/2015/06/Red-de-contactos.jpg"
-                    alt="Second slide"
-                    style={{ maxHeight: '630px', objectFit: 'cover' }}
-                />
-
-                <Carousel.Caption className="carouselImages">
-
-                    <div className='carouselCaption'>
-
-                        <Link className="textLink" to="/alumni"><h1> 👉🏽Alumni List</h1></Link>
-                        <h3>Discover a curated list of alumni who have successfully completed the bootcamp and worked on these projects. Connect with former students to seek support, ask questions, and gain valuable insights into their experiences. Alumni are here to guide and mentor current students, fostering a supportive community for learning and growth.</h3>
+                    <div className="ecosystem__card">
+                        <img src={mano} className="ecosystem__icon" alt="Professional Connections" />
+                        <h3 className="ecosystem__card-title">Professional Connections</h3>
+                        <p className="ecosystem__card-desc">
+                            An active network of alumni and mentors supporting students throughout their learning journey.
+                        </p>
                     </div>
 
-                </Carousel.Caption>
+                    <div className="ecosystem__card">
+                        <img src={ajustes} className="ecosystem__icon" alt="Hands-on Learning" />
+                        <h3 className="ecosystem__card-title">Hands-on Learning</h3>
+                        <p className="ecosystem__card-desc">
+                            A project-based methodology focused on real-world problem solving and practical experience.
+                        </p>
+                    </div>
+                </div>
+            </article>
 
-            </Carousel.Item>
-        </Carousel>
+        </div>
     )
 }
-
 
 export default HomePage

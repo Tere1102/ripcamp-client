@@ -1,37 +1,82 @@
 import { Link } from "react-router-dom"
-import { Button, Card, Container } from "react-bootstrap"
-import './../../Components/AlumniCard/AlumniCard.css'
+import { Button, Card } from "react-bootstrap"
+import "./AlumniCard.css"
+import Skeleton from './../Skeleton/Skeleton';
 
-
-const AlumniCard = ({ id, img, fullName, contact, isWorking }) => {
-
-    const { firstName, lastName } = fullName
-    const { email, phone } = contact
-
+const AlumniCard = ({ id, img, fullName, contact, isWorking, loading = false }) => {
+  if (loading) {
     return (
-        <Card border="secondary" style={{ marginBottom: '20px' }}>
-            <Card.Body className="alumniBody">
-                <div >
-                    <div className="alumniContent">
-                        <img className="alumniImg" src={img} alt={id} />
-                        <div >
-                            <Link className="alumniInfo" to={`/alumni/${id}`}>
-                                <h5>{firstName} {lastName}</h5>
-                            </Link>
-                            <span><strong> Email:</strong> {email}</span>
-                            <span><strong> Phone Number:</strong> {phone}</span>
-                            <span><strong> Is working?:</strong> {isWorking ? "Yes" : "No"}</span>
-                        </div>
-                        <div className="buttonContainer">
-                            <Link to={`/alumni/${id}`}>
-                                <Button variant="dark"><strong>❔Request me!</strong> </Button>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </Card.Body>
-        </Card>
-    )
+      <Card className="AlumniCard" style={{ padding: "15px 20px" }}>
+        <Card.Body className="alumniBody">
+          <div className="alumniContent" style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+            <Skeleton width="100px" height="100px" borderRadius="50%" />
+
+            <div className="alumniInfo" style={{ flexGrow: 1 }}>
+              <Skeleton width="60%" height="20px" style={{ marginBottom: "10px" }} />
+              <Skeleton width="40%" height="15px" style={{ marginBottom: "5px" }} />
+              <Skeleton width="50%" height="15px" style={{ marginBottom: "5px" }} />
+              <Skeleton width="30%" height="15px" style={{ marginBottom: "10px" }} />
+              <Skeleton width="100px" height="35px" borderRadius="8px" />
+            </div>
+          </div>
+        </Card.Body>
+      </Card>
+    );
+  }
+
+  // Contenido normal cuando ya está cargado
+  const { firstName, lastName } = fullName;
+  const { email, phone } = contact;
+
+  return (
+    <Card className="AlumniCard">
+      <Card.Body className="alumniBody">
+
+        <div className="alumniContent">
+          <img
+            className="alumniImg"
+            src={img}
+            alt={`${firstName} ${lastName} profile`}
+          />
+
+          <div className="alumniInfo">
+            <Card.Title>
+              <Link to={`/alumni/${id}`} className="alumniName">
+                {firstName} {lastName}
+              </Link>
+            </Card.Title>
+
+            <Card.Text>
+              <strong>Email:</strong> {email}
+            </Card.Text>
+
+            <Card.Text>
+              <strong>Phone:</strong> {phone}
+            </Card.Text>
+
+            <Card.Text>
+              <strong>Status:</strong>{" "}
+              <span className={`status ${isWorking ? "status-working" : "status-not-working"}`}>
+                {isWorking ? "Available" : "Unavailable"}
+              </span>
+            </Card.Text>
+
+
+            <div className="buttonContainer">
+              <Link to={`/alumni/${id}`}>
+                <Button className="alumniButton">
+                  View profile
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+
+      </Card.Body>
+    </Card>
+  )
 }
 
 export default AlumniCard
+

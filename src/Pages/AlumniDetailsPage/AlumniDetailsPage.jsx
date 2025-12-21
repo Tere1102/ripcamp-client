@@ -1,126 +1,158 @@
-import React from "react"
-import { Card, Button, Col } from "react-bootstrap"
+import { useEffect, useState } from "react"
+import { Card, Button, Col, Row, Badge } from "react-bootstrap" // Quitamos Spinner, añadimos Skeleton
 import { useParams, Link } from "react-router-dom"
-import { useState, useEffect } from "react"
 import axios from "axios"
-import './AlumniDetailsPage.css'
+
+import "./AlumniDetailsPage.css"
+import Skeleton from "../../Components/Skeleton/Skeleton" 
 
 const API_URL = "https://ripcamp-server.fly.dev"
 
 const AlumniDetailsPage = () => {
 
-  const [alumni, setAlumni] = useState({})
-  const [isLoading, setIsLoading] = useState(true)
+    const [alumni, setAlumni] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
 
-  const { alumniId } = useParams()
+    const { alumniId } = useParams()
 
-  useEffect(() => loadAlumni(), [alumniId])
-
-  const loadAlumni = () => {
-    axios
-      .get(`${API_URL}/alumni/${alumniId}`)
-      .then(response => {
-        setAlumni(response.data)
-        setIsLoading(false)
-      })
-      .catch(err => console.log(err))
-  }
-
-  const { img, fullName, contact, address, birth, languages, isWorking, bootcamp, campus } = alumni
-
-  return (
-    <div
-      className="d-flex justify-content-center align-items-center"
-    >
-
-      {
-        isLoading
-          ?
-          <h1>Loading....</h1>
-          :
-          <div>
-
-            <h1>Alumni details</h1>
-
-            <Col className=" mb-5" sm={{ span: 8, offset: 2 }}>
-
-              <Card className="AlumniCard" border="secondary" >
-
-                <Card.Img
-                  variant="top"
-                  src={img}
-                  alt={fullName.firstName}
-                />
-
-                <Card.Body >
-
-                  <Card.Title>
-                    <h3>
-                      {fullName.firstName} {' '} {fullName.lastName}
-                    </h3>
-
-                  </Card.Title>
-
-                  <Card.Text>
-                    <strong>Phone: </strong> {contact.phone}
-                  </Card.Text>
-
-                  <Card.Text>
-                    <strong> Contact: </strong> {contact.email}
-                  </Card.Text>
-
-                  <Card.Text>
-                    <strong> City: </strong> {address.city}
-                  </Card.Text>
-
-                  <Card.Text>
-                    <strong> Birth:</strong> {birth}
-                  </Card.Text>
+    useEffect(() => {
+        axios
+            .get(`${API_URL}/alumni/${alumniId}`)
+            .then(({ data }) => {
+                setAlumni(data)
+                setIsLoading(false)
+            })
+            .catch(err => {
+                console.log(err)
+                setIsLoading(false)
+            })
+    }, [alumniId])
 
 
+    if (isLoading) {
+        return (
+            <div className="alumni-page">
+                <Row className="justify-content-center">
+                    <Col xs={12} md={8} lg={6}>
+                        
+                        <Card className="AlumniCard">
+                            
+                            
+                            <Skeleton width="100%" height="260px" style={{borderBottom: "1px solid rgba(255, 255, 255, 0.08)"}} />
 
-                  <Card.Text>
-                    <strong>Languages: </strong>
-                    {
-                      languages.map((language, index) => <span key={index}>{language}{" "}</span>)
-                    }
-                  </Card.Text>
+                            <Card.Body>
+                               
+                                <div className="d-flex justify-content-center mb-3">
+                                    <Skeleton width="60%" height="32px" />
+                                </div>
 
-                  <Card.Text>
-                    <strong> Bootcamp: </strong> {bootcamp}
-                  </Card.Text>
+                               
+                                <div className="d-flex flex-column gap-2 mb-4">
+                                    <Skeleton width="40%" height="20px" />
+                                    <Skeleton width="55%" height="20px" />
+                                    <Skeleton width="35%" height="20px" />
+                                    <Skeleton width="45%" height="20px" />
+                                    
+                                   
+                                    <div className="d-flex gap-2 mt-2">
+                                        <Skeleton width="60px" height="24px" borderRadius="10px" />
+                                        <Skeleton width="60px" height="24px" borderRadius="10px" />
+                                        <Skeleton width="60px" height="24px" borderRadius="10px" />
+                                    </div>
 
+                                    <Skeleton width="50%" height="20px" className="mt-2" />
+                                    <Skeleton width="40%" height="20px" />
+                                    
+                                    
+                                    <Skeleton width="80px" height="24px" borderRadius="10px" className="mt-1" />
+                                </div>
 
-                  <Card.Text>
-                    <strong> Campus: </strong> {campus}
-                  </Card.Text>
+                                
+                                <div className="d-flex justify-content-between mt-4">
+                                   
+                                    <Skeleton width="90px" height="38px" borderRadius="5px" />
+                                   
+                                    <Skeleton width="70px" height="38px" borderRadius="5px" />
+                                </div>
 
-                  <Card.Text>
-                    <strong> Is working?: </strong> {isWorking ? "Is working now" : "Is not working now"}
-                  </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </div>
+        )
+    }
 
+    
+    const {
+        img,
+        fullName,
+        contact,
+        address,
+        birth,
+        languages,
+        isWorking,
+        bootcamp,
+        campus
+    } = alumni
 
-                  <Link to={"/request-form"}>
-                    <Button variant="dark" > ❔ Request to {fullName.firstName}</Button>
-                  </Link>
+    return (
+        <div className="alumni-page">
+            <Row className="justify-content-center">
+                <Col xs={12} md={8} lg={6}>
+                    <Card className="AlumniCard">
 
+                        <Card.Img
+                            variant="top"
+                            src={img}
+                            alt={`${fullName.firstName} ${fullName.lastName}`}
+                        />
 
-                  {' '}
+                        <Card.Body>
+                            <Card.Title className="text-center mb-3">
+                                {fullName.firstName} {fullName.lastName}
+                            </Card.Title>
 
+                            <Card.Text><strong>Phone:</strong> {contact.phone}</Card.Text>
+                            <Card.Text><strong>Email:</strong> {contact.email}</Card.Text>
+                            <Card.Text><strong>City:</strong> {address.city}</Card.Text>
+                            <Card.Text><strong>Birth:</strong> {birth}</Card.Text>
 
-                  <Link to={"/alumni"}>
-                    <Button variant="dark" > 🔙 Back</Button>
-                  </Link>
+                            <Card.Text>
+                                <strong>Languages:</strong>{" "}
+                                {languages.map((language, index) => (
+                                    <Badge key={index} bg="secondary" className="me-1">
+                                        {language}
+                                    </Badge>
+                                ))}
+                            </Card.Text>
 
+                            <Card.Text><strong>Bootcamp:</strong> {bootcamp}</Card.Text>
+                            <Card.Text><strong>Campus:</strong> {campus}</Card.Text>
 
-                </Card.Body>
+                            <Card.Text>
+                                <strong>Status:</strong>{" "}
+                                <Badge bg={isWorking ? "success" : "danger"}>
+                                    {isWorking ? "Working" : "Not working"}
+                                </Badge>
+                            </Card.Text>
 
-              </Card>
-            </Col>
-          </div>
-      }
-    </div >
-  )
+                            <div className="d-flex justify-content-between mt-4">
+                                <Link to="/request-form">
+                                    <Button variant="dark">Request</Button>
+                                </Link>
 
+                                <Link to="/alumni">
+                                    <Button variant="outline-dark">Back</Button>
+                                </Link>
+                            </div>
+
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </div>
+    )
 }
+
 export default AlumniDetailsPage

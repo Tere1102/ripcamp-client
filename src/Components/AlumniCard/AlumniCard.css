@@ -1,8 +1,142 @@
-.alumniBody {
-    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px, rgba(0, 0, 0, 0.35) 10px 10px, rgba(0, 0, 0, 0.35) 15px 15px, rgba(0, 0, 0, 0.35) 20px 20px, rgba(0, 0, 0, 0.35) 25px 25px;
+/* =====================================================
+   ALUMNI PAGE
+   ===================================================== */
+
+.alumniPage {
+  background-color: var(--home-bg);
+  min-height: 100vh;
+}
+
+.alumniPageTitle {
+  color: var(--color-white);
+  text-align: center;
+  padding: 60px 0 20px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.alumniSection {
+  padding: 60px 0;
+}
+
+.alumniSection .AlumniCard {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.AlumniCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--home-bg);
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  max-width: 700px;
+  margin: auto;
+}
+
+.alumniContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  background: transparent;
+  padding: 0;
+}
+
+.alumniImg {
+  width: 140px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.alumniName {
+  font-weight: bold;
+  color: var(--color-accent-primary);
+  text-decoration: none;
+}
+
+.alumniName:hover {
+  text-decoration: underline;
 }
 
 .alumniInfo {
-    text-decoration: none;
-    color: black;
+  flex: 1;
+  color: var(--color-text-muted);
+}
+
+.alumniInfo strong {
+  color: var(--color-white);
+}
+
+.status-working {
+  color: #4ade80; /* verde */
+  font-weight: 600;
+}
+
+.status-not-working {
+  color: #f87171; /* rojo */
+  font-weight: 600;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+/* Botón estilizado */
+.alumniButton {
+  background-color: transparent !important;
+  border: 1px solid var(--alumni-btn-border) !important;
+  color: var(--alumni-btn-border) !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.alumniButton:hover {
+  background-color: var(--alumni-btn-bg-hover) !important;
+  color: var(--color-dark-800) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Skeleton card */
+.AlumniCard.skeleton {
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .alumniContent {
+    flex-direction: column;
+    max-width: 100%;
+    height: auto;
+    padding: 15px 0 0 0; 
+  }
+
+  .alumniImg {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  .alumniInfo {
+    height: auto;
+  }
+
+  .buttonContainer {
+    justify-content: center;
+    margin-top: 10px;
+  }
 }

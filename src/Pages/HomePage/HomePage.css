@@ -1,17 +1,323 @@
-.carouselCaption {
-    margin-top: 80px;
-    color: white;
+/* =========================================
+   LAYOUT GENERAL
+   ========================================= */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    /* Espacio consistente entre secciones */
+    background-color: var(--color-dark-800);
+    color: var(--color-white);
+    padding: 2rem 1rem;
+    /* Padding lateral seguro para móvil */
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
-.carouselCaption Link {
+.text-link {
     text-decoration: none;
+    color: var(--color-accent-primary);
+    transition: opacity 0.3s ease;
 }
 
-.carouselImages {
-    top: 150px;
+.text-link:hover {
+    opacity: 0.8;
 }
 
-.textLink {
-    text-decoration: none;
-    color: white;
+/* =========================================
+   TERMINAL SECTION
+   ========================================= */
+.terminal {
+    display: flex;
+    flex-direction: row;
+    /* Por defecto en fila (PC) */
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    width: 100%;
+    max-width: 800px;
+    /* Un poco más ancho para pantallas grandes */
+    min-height: 280px;
+    /* Altura mínima, no fija */
+
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+
+    font-family: "Fira Code", monospace;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.terminal__content {
+    flex: 1;
+    /* Ocupa el espacio disponible */
+}
+
+.terminal__code {
+    display: block;
+    font-size: 1.5rem;
+    /* Tamaño base */
+    line-height: 1.5;
+    white-space: pre-wrap;
+    /* Permite saltos de línea */
+}
+
+.terminal__image-container {
+    flex-shrink: 0;
+}
+
+.terminal__img {
+    width: 240px;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+
+/* Colores de sintaxis */
+.code-function {
+    color: var(--home--code-func);
+}
+
+.code-bracket {
+    color: var(--home--code-bracket);
+}
+
+.code-old {
+    color: var(--color-white);
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.code-new {
+    color: var(--color-accent-primary);
+    font-weight: bold;
+}
+
+.code-new::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   CAROUSEL SECTION
+   ========================================= */
+.carousel-section {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Personalización Bootstrap */
+.custom-carousel {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    /* Recorta esquinas */
+
+}
+
+.carousel-item-custom {
+    position: relative;
+    /* Quitamos height fijo para evitar cortes en móvil */
+    min-height: 300px;
+}
+
+/* Espaciador invisible para dar altura */
+.carousel-spacer {
+    height: 300px;
+    width: 100%;
+}
+
+.carousel-caption-custom {
+    /* Centrado absoluto perfecto */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    z-index: 10;
+}
+
+.caption-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.caption-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--color-text-muted);
+}
+
+/* =========================================
+   ECOSYSTEM SECTION
+   ========================================= */
+.ecosystem {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ecosystem__title {
+    font-size: 2rem;
+    color: var(--color-white);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.ecosystem__title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent-primary);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.ecosystem__grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.ecosystem__card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+
+    /* Responsive width: base 300px, pero se encoge si es necesario */
+    flex: 1 1 280px;
+    max-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ecosystem__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 149, 106, 0.3);
+}
+
+.ecosystem__icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.ecosystem__card-title {
+    color: var(--color-accent-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.ecosystem__card-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* =========================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+
+/* TABLET & MOBILE (< 992px) */
+@media (max-width: 992px) {
+    .terminal {
+        max-width: 650px;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .terminal__img {
+        width: 220px;
+        margin-bottom: 1rem;
+    }
+
+    .carousel-section {
+        max-width: 700px;
+    }
+
+    .caption-content p {
+        max-width: 500px;
+    }
+
+}
+
+/* MOBILE (< 768px) */
+@media (max-width: 767px) {
+
+    .home {
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    /* Terminal Mobile */
+    .terminal {
+        max-width: 350px;
+        padding: 1.5rem;
+    }
+
+    .terminal__code {
+        font-size: 1.1rem;
+    }
+
+
+    /* Carousel Mobile */
+    .caption-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .caption-content p {
+        font-size: 0.9rem;
+    }
+
+
+    .carousel-spacer {
+        height: 380px;
+    }
+
+    /* Ecosystem Mobile */
+    .ecosystem__card {
+        max-width: 100%;
+        flex-basis: 100%;
+    }
 }

@@ -1,0 +1,48 @@
+:root {
+
+    --border-radius: 12px;
+
+    /* ===== Colores base ===== */
+    --color-white: #ffffff;
+    --color-dark-900: #1F2630;
+    --color-dark-800: #252F3B;
+    --color-dark-700: #2A3441;
+    --color-dark-600: #353F4F;
+
+    /* ===== Colores acento ===== */
+    --color-accent-primary: #FF956A;
+    --color-accent-primary-hover: #ff7f4d;
+     --color-text-muted: #b0b8c5;
+
+    /* Home específico*/
+    --home--code-func: #38bdf8;
+    --home--code-bracket: #e5e7eb;
+
+    /* Alumni específico */
+    --alumni-btn-border: var(--color-accent-primary);
+    --alumni-btn-bg-hover: var(--color-accent-primary);
+    --alumni-btn-text-hover: var( --color-dark-800);
+
+    /* Fondo home (para hover del botón) */
+    --home-bg: var(--color-dark-900);
+
+    /* ===== Texto ===== */
+    --color-text-muted: #b0b8c5;
+
+    /* ===== Estados ===== */
+    --focus-shadow-accent: rgba(255, 149, 106, 0.25);
+
+    /* FOOTER */
+    --footer-bg: #97553B;
+}
+
+
+
+
+.App {
+    background-color: var(--color-dark-800);
+
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}

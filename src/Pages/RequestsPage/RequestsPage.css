@@ -1,3 +1,99 @@
-.textCard {
-    text-align: center;
+/* Diferenciación visual para las completadas */
+.custom-theme.requestsPage .completed-card .card {
+    border: 1px solid #198754 !important;
+    opacity: 0.85;
+}
+
+/* --- BADGE PERSONALIZADO (PENDING) --- */
+.custom-theme.requestsPage .badge-pending {
+    background-color: var(--color-accent-primary) !important; 
+    color: var(--color-dark-900) !important;             
+    font-weight: 700;
+    border: 1px solid var(--color-accent-primary);             
+}
+
+/* Títulos de sección */
+h2 {
+    color: var(--color-accent-primary) !important; 
+    font-weight: 300;
+}
+
+/* =========================================
+   1. ESTILOS DE LA TARJETA (CARD)
+   ========================================= */
+.custom-theme.requestsPage .card {
+    background-color: var(--color-dark-700) !important; 
+    border: 1px solid var(--color-dark-600) !important; 
+    color:  var(--color-text-muted) !important;         
+    border-radius: 12px;
+    overflow: hidden; 
+}
+
+/* =========================================
+   2. ESTILOS DE LA LISTA (LIST GROUP)
+   ========================================= */
+/* Los items de la lista (Nombre, Email, etc.) */
+.custom-theme.requestsPage .list-group-item {
+    background-color: transparent !important; 
+    border-bottom: 1px solid var(--color-dark-600) !important; 
+    color: var(--color-text-muted) !important; 
+    padding: 1rem 1.25rem;
+}
+
+/* Las etiquetas en negrita (Name:, Email:, etc.) */
+.custom-theme.requestsPage .list-group-item strong {
+    color: var(--color-accent-primary) !important; 
+    font-weight: 600;
+}
+
+/* =========================================
+   3. CUERPO DE LA TARJETA
+   ========================================= */
+.custom-theme.requestsPage .card-body {
+    padding: 1.5rem;
+}
+
+.custom-theme.requestsPage .card-title {
+    color: var(--color-text-muted) !important;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-dark-600);
+    padding-bottom: 0.5rem;
+}
+
+.custom-theme.requestsPage .card-text {
+    color: #e0e0e0 !important;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   4. BOTONES (SOLUCIÓN DEFINITIVA TAMAÑO)
+   ========================================= */
+.custom-theme.requestsPage .btn-dark {
+    background-color: var(--color-dark-700) !important; 
+    color: var(--color-accent-primary) !important;             
+    border: 1px solid var(--color-accent-primary) !important;
+    font-weight: 500;
+    
+    /* CAMBIOS PARA IGUALAR TAMAÑOS: */
+    width: 200px !important;       
+    height: 45px !important;       
+    padding: 0 !important;        
+    
+    display: inline-flex !important; 
+    justify-content: center !important; 
+    align-items: center !important;
+}
+
+.custom-theme.requestsPage .btn-dark:hover {
+    background-color: var(--color-accent-primary-hover) !important; 
+    color:var(--color-dark-700) !important;         
+}
+/* =========================================
+   5. RESPONSIVE Y ESPACIADO
+   ========================================= */
+.custom-theme.requestsPage .requestCard {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
 }
