@@ -4,7 +4,7 @@ import AlumniCard from "../AlumniCard/AlumniCard"
 import { Container, Row, Col } from "react-bootstrap"
 import "./AlumniList.css"
 
-const API_URL = "https://ripcamp-server.fly.dev"
+const API_URL = "https://ingeina-server.fly.dev"
 
 const AlumniList = () => {
     const [alumnis, setAlumnis] = useState([])

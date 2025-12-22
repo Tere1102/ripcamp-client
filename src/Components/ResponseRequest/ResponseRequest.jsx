@@ -3,7 +3,7 @@ import { useState } from "react"
 import axios from "axios"
 import './ResponseRequest.css'
 
-const API_URL = "https://ripcamp-server.fly.dev"
+const API_URL = "https://ingeina-server.fly.dev"
 
 const ResponseRequest = ({ request, loadRequests }) => {
 

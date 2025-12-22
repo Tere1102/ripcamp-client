@@ -6,7 +6,7 @@ import axios from "axios"
 import "./AlumniDetailsPage.css"
 import Skeleton from "../../Components/Skeleton/Skeleton" 
 
-const API_URL = "https://ripcamp-server.fly.dev"
+const API_URL = "https://ingeina-server.fly.dev"
 
 const AlumniDetailsPage = () => {
 

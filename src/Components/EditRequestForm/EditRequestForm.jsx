@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { Container, Form, FloatingLabel, Button } from "react-bootstrap"
 import './EditRequestForm.css'
 
-const API_URL = "https://ripcamp-server.fly.dev"
+const API_URL = "https://ingeina-server.fly.dev"
 
 const EditRequestForm = () => {
 

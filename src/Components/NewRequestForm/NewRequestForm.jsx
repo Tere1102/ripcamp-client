@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
-const API_URL = "https://ripcamp-server.fly.dev"
+const API_URL = "https://ingeina-server.fly.dev"
 
 const NewRequestForm = () => {
 

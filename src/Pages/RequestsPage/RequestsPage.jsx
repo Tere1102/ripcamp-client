@@ -6,7 +6,7 @@ import { Link} from "react-router-dom"
 import ResponseRequest from "../../Components/ResponseRequest/ResponseRequest"
 import Skeleton from "../../Components/Skeleton/Skeleton" 
 
-const API_URL = "https://ripcamp-server.fly.dev"
+const API_URL = "https://ingeina-server.fly.dev"
 
 
 const RequestsPage = () => {
