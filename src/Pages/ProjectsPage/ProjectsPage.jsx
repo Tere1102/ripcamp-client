@@ -1,41 +1,50 @@
 import { Card, Row, Col, Container} from "react-bootstrap"
 import './../ProjectsPage/ProjectsPage.css'
 
+import projectWeb1 from '../../assets/images/projectWeb1.png'
+import projectWeb2 from'../../assets/images/projectWeb2.png'
+import projectWeb3 from'../../assets/images/projectWeb3.png'
+
+import projectData1 from '../../assets/images/projectData1.png'
+import projectData2 from'../../assets/images/projectData2.png'
+import projectData3 from'../../assets/images/projectData3.png'
+
+
 const Projects = () => {
 
     const webProjects = [
         {
-            title: "The Game",
-            img: "https://images.crazygames.com/games/space-invaders/cover-1591955301711.png",
-            desc: "Browser-based JavaScript game built with OOP principles, win/lose logic, clean architecture and deployed with GitHub Pages."
+            title: "JavaScript Browser Game",
+            img: projectWeb1,
+            desc: "Browser-based game built with vanilla JavaScript, HTML, and CSS, applying core programming concepts such as functions, loops, objects, and game logic (win/lose conditions). Focused on DOM manipulation and clean code structure."
         },
         {
-            title: "React Application",
-            img: "https://www.alphalogicinc.com/wp-content/uploads/2019/02/React-app.jpg",
-            desc: "Single Page Application built with React, full CRUD functionality, API integration and deployed online."
+            title: "React Single Page Application",
+            img: projectWeb2,
+            desc: "Single Page Application built with React using a component-based architecture, hooks, and modern JavaScript. Features full CRUD functionality, API integration with async/await, multiple views, and deployment to a live environment."
         },
         {
-            title: "Full Stack App",
-            img: "https://www.monday.com/blog/wp-content/uploads/2021/06/cg45imeetz97Bi1aO7F7Hczm_okRzkD90cI_n85UntHmyphNEJH2J1DmAO1KPt0jjIPLAmCsKannpMIDta9armoNXipQOrsCRxDQPwBR7rjcawY6BD4-HxQDqxsgSQAFoA2LQfvT.png",
-            desc: "Full-stack application combining data processing, backend services and a modern frontend."
+            title: "Full-Stack MERN Application",
+            img: projectWeb3,
+            desc: "Full-stack web application built with the MERN stack (MongoDB, Express, React, Node.js). Includes RESTful API development, user authentication and authorization, protected routes, full CRUD operations, and deployment following agile team workflows."
         }
     ];
 
     const dataProjects = [
         {
-            title: "Scraping & APIs",
-            img: "https://sceglifornitore.it/blog/wp-content/uploads/2021/02/data-analyst.png",
-            desc: "Python project focused on web scraping, API consumption, data cleaning, EDA and insights generation."
+            title: "Data Collection & Dataset Engineering",
+            img: projectData1,
+            desc: "End-to-end Python project focused on data acquisition through APIs and web scraping, data cleaning and transformation with Pandas, and dataset creation from scratch. Includes automation workflows, exploratory analysis, and storage in a relational database."
         },
         {
-            title: "Data Analysis Project",
-            img: "https://images.shiksha.com/mediadata/shikshaOnline/mailers/2021/naukri-learning/oct/27oct/what-is-data-analyst.jpg",
-            desc: "Data cleaning, hypothesis testing, performance metrics, experimentation and Tableau dashboards."
+            title: "Exploratory Data Analysis & Business Insights",
+            img: projectData2,
+            desc: "Exploratory data analysis project using Python and SQL to uncover patterns and relationships in real-world datasets. Includes statistical analysis, hypothesis testing, and data visualization with Matplotlib, Seaborn, and Tableau to communicate actionable business insights."
         },
         {
-            title: "Full Stack App",
-            img: "https://owiusmadrid.com/wp-content/uploads/2019/10/Desarrollo-Web.png",
-            desc: "Full-stack application combining data processing, backend services and a modern frontend."
+            title: "Machine Learning & Predictive Analytics Project",
+            img: projectData3,
+            desc: "Final capstone project applying supervised and unsupervised machine learning techniques using Scikit-learn. Includes data preprocessing, model training and evaluation (regression, classification, clustering), and the integration of generative AI tools to enhance real-world analytical workflows."
         }
     ];
 
