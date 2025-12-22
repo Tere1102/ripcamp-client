@@ -1,8 +1,19 @@
-# React + Vite
+# Ingeina
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ingeina is a **collaborative Single Page Application (SPA)** built with React, designed to connect current web and data bootcamp students with alumni. The platform encourages networking, mentorship, and community building within the tech ecosystem, providing a space for **queries, questions, or technical help** among students and alumni.
 
-Currently, two official plugins are available:
+This project was developed as a **team project** during a web development bootcamp, organizing ourselves collaboratively to plan, distribute tasks, and complete the project together.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Frontend Routes
+
+| Path | Description |
+|------|-------------|
+| `/` | Home page with an overview of the platform |
+| `/projects` | Projects showcase page |
+| `/alumni` | Alumni list page |
+| `/alumni/:alumniId` | Dynamic alumni detail page |
+| `/about` | About the project and the team |
+| `/request-list` | Main page for queries (questions, help, or technical topics) |
+| `/request-form` | Create a new query |
+| `/request/edit/:requestId` | Edit an existing query |
+| `*` | 404 – Page not found |

@@ -39,7 +39,7 @@ const ResponseRequest = ({ request, loadRequests }) => {
                             <Form onSubmit={handleCommentSubmit}>
                                 <FloatingLabel controlId="floatingTextarea2" label="Comment..." className="mt-2 mb-2" >
                                     <Form.Control
-                                        as="textarea" /* Cambio importante: para que sea una caja de texto */
+                                        as="textarea"
                                         style={{ height: '100px' }}
                                         type="text"
                                         name={'textresponse'}

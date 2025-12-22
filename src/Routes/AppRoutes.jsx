@@ -5,7 +5,7 @@ import AlumniPage from '../Pages/AlumniPage/AlumniPage'
 import AlumniDetailsPage from '../Pages/AlumniDetailsPage/AlumniDetailsPage'
 import AboutPage from './../Pages/AboutPage/AboutPage'
 import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage"
-import NewRequestPage from "../Pages/NewRequestPage/NewRequestPage"
+// import NewRequestPage from "../Pages/NewRequestPage/NewRequestPage"
 import RequestsPage from './../Pages/RequestsPage/RequestsPage'
 import NewRequestForm from "../Components/NewRequestForm/NewRequestForm"
 import EditRequestForm from "../Components/EditRequestForm/EditRequestForm"
@@ -26,9 +26,9 @@ const AppRoutes = () => {
 
                 <Route path="/request-form" element={<NewRequestForm />} />
                 <Route path="/request-list" element={<RequestsPage />} />
-                <Route path="/requests" element={<NewRequestPage />} />
                 <Route path="/request/edit/:requestId" element={<EditRequestForm />} />
-                <Route path="/requests/:requestId" element={<RequestsPage />} />
+                {/* <Route path="/requests/:requestId" element={<RequestsPage />} />  */}
+                {/* <Route path="/requests" element={<NewRequestPage />}/> */}
 
                 <Route path="*" element={<NotFoundPage />} />
 
